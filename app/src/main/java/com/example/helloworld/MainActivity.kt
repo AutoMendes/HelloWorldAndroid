@@ -12,14 +12,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Variaveis
         var textViewHello : TextView = TextView(this)
         var isEnglish : Boolean = true
         var iteratorView : TextView = TextView(this)
-        textViewHello .text = "Hello World!"
-
+        var congratsMessage : TextView = TextView(this)
+        var linearLayout = LinearLayout(this)
         var buttonTranslate = Button(this)
 
+        // atribuir texto
+        textViewHello .text = "Hello World!"
+        congratsMessage.text = "\nParabéns, traduziste 100 vezes!"
         buttonTranslate.text = "Traduzir"
+
         buttonTranslate.setOnClickListener {
             iterator+= 1
             // Verificar Linguagem
@@ -30,10 +35,12 @@ class MainActivity : AppCompatActivity() {
                 textViewHello.text = "Hello World!"
                 isEnglish = true
             }
+            if (iterator == 100)
+                linearLayout.addView(congratsMessage)
             iteratorView.text = "$iterator"
         }
 
-        var linearLayout = LinearLayout(this)
+        // layout
         linearLayout.addView(textViewHello)
         linearLayout.addView(buttonTranslate)
         linearLayout.addView(iteratorView)
