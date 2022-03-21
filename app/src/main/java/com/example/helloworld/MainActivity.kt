@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonTranslate.text = "Traduzir"
         buttonTranslate.setOnClickListener {
+            // Verificar Linguagem
             if (isEnglish) {
                 textViewHello.text = "Olá Mundo!"
                 isEnglish = false
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         linearLayout.addView(textViewHello)
         linearLayout.addView(buttonTranslate)
 
+        // Mostrar no ecra
         setContentView(linearLayout)
     }
 }
